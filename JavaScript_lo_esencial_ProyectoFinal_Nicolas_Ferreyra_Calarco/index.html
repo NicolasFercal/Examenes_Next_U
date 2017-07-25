@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  	<link rel="stylesheet" href="estilos.css">
+    <title>JavaScript: lo esencial - Evaluación Final</title>
+  </head>
+  <body onload="evento_onload()">
+    <div class="contenedor" align= "center">
+      <p id="estudiantes_lista"></p>
+      <p id="estudiantes_promedio"></p>
+      <p id="estudiante_mayor"></p>
+      <p id="estudiante_menor"></p>
+    </div>
+    <div class="botones" align="center">
+      <button onclick="mostrarEstudiantes()">Estudiantes</button>
+      <button onclick="mostrarTotalVentas()">Promedio</button>
+      <button onclick="mostrarVentas()">Mayor</button>
+      <button onclick="mostrarTotalVentas()">Menor</button>
+    </div>
+  </body>
+<script>
+// Armado de Json
+  var estudiantes = [
+    {
+      "codigo":"0001",
+      "nombre":"Nicolas FC",
+      "nota":10
+    },{
+      "codigo":"0002",
+      "nombre":"Augusto G",
+      "nota":9
+    },{
+      "codigo":"0003",
+      "nombre":"Luciano B",
+      "nota":3
+    },{
+      "codigo":"0004",
+      "nombre":"Mauricio M",
+      "nota":5.5
+    },{
+      "codigo":"0005",
+      "nombre":"Pablo M",
+      "nota":1
+    },{
+      "codigo":"0006",
+      "nombre":"Ezequiel A",
+      "nota":6
+    },{
+      "codigo":"0007",
+      "nombre":"Vanina D",
+      "nota":7
+    },{
+      "codigo":"0008",
+      "nombre":"Ariel C",
+      "nota":5
+    },{
+      "codigo":"0009",
+      "nombre":"Nicolas P ",
+      "nota":4
+    },{
+      "codigo":"0010",
+      "nombre":"Guadalupe C",
+      "nota":9
+    }
+  ];
+// Funciones mostrar todos los estudiantes con sus respectivas propiedades
+function leerJSON(json) {
+    var out = "               Estudiantes                  <br>";
+    var i;
+    for (i = 0; i < json.length; i++) {
+        out += "Codigo:" + json[i].codigo + "-" + "Nombre:" + json[i].nombre + "-" + "Nota:" + json[i].nota +"<br>";
+    }
+
+    document.getElementById("estudiantes_lista").innerHTML = out;
+
+}
+function mostrarEstudiantes() {
+    leerJSON(estudiantes);
+}
+
+
+
+</script>
+</html>
