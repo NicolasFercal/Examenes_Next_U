@@ -6,7 +6,7 @@
   	<link rel="stylesheet" href="estilos.css">
     <title>JavaScript: lo esencial - Evaluación Final</title>
   </head>
-  <body onload="evento_onload()">
+  <body>
     <div class="contenedor" align= "center">
       <p id="estudiantes_lista"></p>
       <p id="estudiantes_promedio"></p>
@@ -15,9 +15,9 @@
     </div>
     <div class="botones" align="center">
       <button onclick="mostrarEstudiantes()">Estudiantes</button>
-      <button onclick="mostrarTotalVentas()">Promedio</button>
-      <button onclick="mostrarVentas()">Mayor</button>
-      <button onclick="mostrarTotalVentas()">Menor</button>
+      <button onclick="mostrarPromedio()">Promedio</button>
+      <button onclick="mostrarMayorNota()">Mayor</button>
+      <button onclick="mostrarMenorNota()">Menor</button>
     </div>
   </body>
 <script>
@@ -80,6 +80,59 @@ function mostrarEstudiantes() {
     leerJSON(estudiantes);
 }
 
+// funcion mostrar promedio general de todos los alumnos
+
+function calcularPromedio(json) {
+
+    var out = "Promedio General <br>";
+    var totalPromedio = 0.0;
+    for (i = 0; i < json.length; i++) {
+        totalPromedio += json[i].nota;
+    }
+    totalPromedio= totalPromedio/json.length;
+    document.getElementById("estudiantes_promedio").innerHTML = "El Promedio General es : " + totalPromedio;
+
+}
+function mostrarPromedio() {
+    calcularPromedio(estudiantes);
+}
+// formula para determinar el alumno con mayor nota
+function NotaMayor(json){
+
+  var NotaMayor = json[0].nota;
+  var pos = 0;
+  for(i = 0; i < json.length; i++){
+    if(json[i].nota > NotaMayor){
+      NotaMayor = json[i].nota;
+      pos = i;
+    }
+    document.getElementById("estudiante_mayor").innerHTML = "El Alumno con la mayor nota es: " + json[pos].codigo + " | " + json[pos].nombre + " | " + json[pos].nota ;
+    }
+}
+
+
+function mostrarMayorNota() {
+          NotaMayor(estudiantes);
+       }
+
+// funcion para determinar el alumno con menor nota
+function NotaMenor(json){
+
+  var NotaMenor = json[0].nota;
+  var pos = 0;
+  for(i = 0; i < json.length; i++){
+    if(json[i].nota < NotaMenor){
+      NotaMenor = json[i].nota;
+      pos = i;
+    }
+    document.getElementById("estudiante_menor").innerHTML = "El Alumno con la menor nota es: " + json[pos].codigo + " | " + json[pos].nombre + " | " + json[pos].nota ;
+    }
+}
+
+
+function mostrarMenorNota() {
+          NotaMenor(estudiantes);
+       }
 
 
 </script>
