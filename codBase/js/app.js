@@ -1,27 +1,47 @@
-var calculadora ={};
+function calculadora(){
+  x=document.getElementsByTagName("div")[5]
+  y=x.getElementsByClassName("tecla")
+  for (var i = 0; i < y.length; i++) {
 
-calculadora = (function () {
-
-  var teclasArray = document.getElementsByClassName("tecla");
-  console.log(teclasArray);
-  for (var i = 0; i < teclasArray.length; i++) {
-
-    var tecla=teclasArray[i];
-    tecla.addEventListener("onclick", function onclick() {
-
-    alert()});
-//    tecla.addEventListener("onfocus", mouseUp(tecla.id));
-
+    y[i].addEventListener("mousedown",mouseDown1);
+    y[i].addEventListener("mouseup", mouseUp1);
   }
-//  function mouseDown(element) {
-//    alert(mouseDown)
-//    document.getElementById(element).style.width = "60px";
-//    document.getElementById(element).style.height = "60px";
-//  };
-//
-//  function mouseUp(element) {
-//    document.getElementById(element).style.width = "70px";
-//    document.getElementById(element).style.height = "70px";
-//  };
-//
-}());
+  x1=document.getElementsByTagName("div")[7]
+  y1= x1.getElementsByTagName("img")
+
+  for (var i = 0; i < y1.length; i++) {
+  y1[i].addEventListener("mousedown",mouseDown2);
+  y1[i].addEventListener("mouseup", mouseUp2);
+  }
+  x2=document.getElementById('mas')
+  x2.addEventListener("mousedown",mouseDown3);
+  x2.addEventListener("mouseup", mouseUp3);
+
+  function mouseDown2() {
+   this.style.width="28.7%";
+   this.style.height="61.91px";
+  }
+  function mouseUp2() {
+   this.style.width="29%";
+   this.style.height="62.91px";
+ }
+ function mouseDown1() {
+   this.style.width="21.7%";
+   this.style.height="61.91px";
+ }
+ function mouseUp1() {
+   this.style.width="22%";
+   this.style.height="62.91px";
+ }
+ function mouseDown3() {
+   this.style.width="89.7%";
+   this.style.height="99%";
+ }
+ function mouseUp3() {
+   this.style.width="90%";
+   this.style.height="100%";
+ }
+
+
+}
+calculadora();
